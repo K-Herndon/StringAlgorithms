@@ -132,6 +132,6 @@ public class StringAlgorithms {
 
         System.out.println("\nTesting firstUniqueChar:");
         // Example:
-        System.out.println(firstUniqueChar("sssaaabbbbbxggggjjsdfrge"));
+        System.out.println(firstUniqueChar("swiss"));
     }
 }
