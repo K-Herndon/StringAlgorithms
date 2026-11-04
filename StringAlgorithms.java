@@ -7,7 +7,15 @@ public class StringAlgorithms {
      */
     public static String printCharacters(String word) {
         // TODO: Implement this method
-        return "";
+        int numLetters = word.length();
+        int letterNum = 0;
+        String newString = "";
+        while (numLetters > 0){
+           newString = newString + word.substring(letterNum, letterNum + 1) + "\n";
+           letterNum++;
+           numLetters--;
+        }
+        return newString;
     }
 
 
@@ -18,7 +26,15 @@ public class StringAlgorithms {
      */
     public static String reverseWord(String word) {
         // TODO: Implement this method
-        return "";
+        int numLetters = word.length();
+        int letterNum = word.length() - 1;
+        String newString = "";
+        while (numLetters > 0){
+           newString = newString + word.substring(letterNum, letterNum+1);
+           letterNum--;
+           numLetters--;
+        }
+        return newString;
     }
 
 
@@ -28,7 +44,24 @@ public class StringAlgorithms {
      * the sentence with the first letter of each word capitalized.
      */
     public static String capitalizeString(String sentence) {
-        // TODO: Implement this method
+      //  char toMakeUpper = sentence.charAt(0);
+      //  String capitalized = "";
+      //  String word = sentence.substring(0, sentence.indexOf(" ") + 1);
+      //  boolean allChecked = false;
+       //    while (allChecked == false){
+       //    char toChange = word.charAt(0);
+       //    toChange = Character.toUpperCase(toChange);
+       ///    capitalized = capitalized + toChange + word.substring(1, word.length());
+           //System.out.println(word.length());
+       ///    String check = sentence.substring(word.length(), sentence.length());
+      //     if (check.indexOf(" ") != -1) {
+              //word = sentence.substring(check.indexOf(" "), sentence.length());
+       //       System.out.println(check.indexOf(" "));
+       //    } else {
+       //       allChecked = true;
+       //    }
+           
+        //}
         return "";
     }
 
@@ -39,8 +72,8 @@ public class StringAlgorithms {
      * if the word is a palindrome (ignoring case), false otherwise.
      */
     public static boolean detectPalindrome(String word) {
-        // TODO: Implement this method
-        return false;
+        String reverse = reverseWord(word);
+        return reverse.equals(word);
     }
 
 
@@ -50,9 +83,26 @@ public class StringAlgorithms {
      * first character that appears exactly once. If no such
      * character exists, return a space ' '.
      */
-    public static char firstUniqueChar(String word) {
+    public static String firstUniqueChar(String word) {
         // TODO: Implement this method
-        return ' ';
+        String charToCheck = "";
+        int checkIndex = 0;
+        boolean found = false;
+        while (found == false){
+        // grab next character in the string
+           charToCheck = word.substring(checkIndex, checkIndex+1);
+        // grab the string AFTER the character
+           String portionBeforeToCheck = word.substring(checkIndex + 1, word.length());
+        // grab the string BEFORE the character
+           String portionBehindToCheck = word.substring(0, checkIndex);
+        // check if character being checked appears in the strings before or after where it is being checked
+           if (portionBeforeToCheck.indexOf(charToCheck) == -1 && portionBehindToCheck.indexOf(charToCheck) == -1){
+              found = true;
+           } else {
+            checkIndex++;
+           }
+        }
+        return charToCheck;
     }
 
 
@@ -66,22 +116,22 @@ public class StringAlgorithms {
         
         System.out.println("Testing printCharacters:");
         // Example:
-        // System.out.println(printCharacters("hello"));
+        System.out.println(printCharacters("hello"));
 
-        System.out.println("\nTesting reverseWord:");
+        System.out.println("Testing reverseWord:");
         // Example:
-        // System.out.println(reverseWord("hello"));
+        System.out.println(reverseWord("hello"));
 
         System.out.println("\nTesting capitalizeString:");
         // Example:
-        // System.out.println(capitalizeString("the quick brown fox"));
+        System.out.println(capitalizeString("the quick brown fox"));
 
         System.out.println("\nTesting detectPalindrome:");
         // Example:
-        // System.out.println(detectPalindrome("racecar"));
+        System.out.println(detectPalindrome("racecar"));
 
         System.out.println("\nTesting firstUniqueChar:");
         // Example:
-        // System.out.println(firstUniqueChar("swiss"));
+        System.out.println(firstUniqueChar("sssaaabbbbbxggggjjsdfrge"));
     }
 }
