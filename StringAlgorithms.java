@@ -44,25 +44,15 @@ public class StringAlgorithms {
      * the sentence with the first letter of each word capitalized.
      */
     public static String capitalizeString(String sentence) {
-      //  char toMakeUpper = sentence.charAt(0);
-      //  String capitalized = "";
-      //  String word = sentence.substring(0, sentence.indexOf(" ") + 1);
-      //  boolean allChecked = false;
-       //    while (allChecked == false){
-       //    char toChange = word.charAt(0);
-       //    toChange = Character.toUpperCase(toChange);
-       ///    capitalized = capitalized + toChange + word.substring(1, word.length());
-           //System.out.println(word.length());
-       ///    String check = sentence.substring(word.length(), sentence.length());
-      //     if (check.indexOf(" ") != -1) {
-              //word = sentence.substring(check.indexOf(" "), sentence.length());
-       //       System.out.println(check.indexOf(" "));
-       //    } else {
-       //       allChecked = true;
-       //    }
-           
-        //}
-        return "";
+        String newSentence = "" + Character.toUpperCase(sentence.charAt(0)) + sentence.substring(1, sentence.length());
+        for (int i = 0; i < sentence.length(); i++)
+        {
+           char checking = newSentence.charAt(i);
+           if (checking == ' '){
+            newSentence = newSentence.substring(0, i+1) + Character.toUpperCase(sentence.charAt(i+1)) + sentence.substring(i+2, sentence.length());
+           }
+        }
+        return newSentence;
     }
 
 
